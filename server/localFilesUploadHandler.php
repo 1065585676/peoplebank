@@ -5,6 +5,8 @@ if (empty($_FILES['localFilesUpload'])) {
 	return;
 }
 
+//echo json_encode(['error' => $_POST['filetype']]);return;
+
 $files = $_FILES['localFilesUpload'];
 
 // Loop through each file

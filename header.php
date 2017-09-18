@@ -8,18 +8,20 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="http://www.pbc.gov.cn/" target="_blank"> THE PEOPLE'S BANK OF CHINA </a>
+			<strong>
+				<a class="navbar-brand" href="http://www.pbc.gov.cn/" target="_blank"> 中 国 人 民 银 行 </a>
+			</strong>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="file-select-link"><a href="FileUploadPage.php">File Upload</a></li>
-				<li class="conduct-rule-link"><a href="ConductRulePage.php" onclick="switchHeaderClickContent('conduct-rule-link')">Conduct Rule</a></li>
-				<li class="compliance-rule-link"><a href="ComplianceRulePage.php">Compliance Rule</a></li>
-				<li class="setting-link"><a href="SettingPage.php">Setting<span class="sr-only">(current)</span></a></li>
+				<li class="file-select-link"><a href="FileUploadPage.php">文件上传</a></li>
+				<li class="conduct-rule-link"><a href="ConductRulePage.php" onclick="switchHeaderClickContent('conduct-rule-link')">行为规则</a></li>
+				<li class="compliance-rule-link"><a href="ComplianceRulePage.php" onclick="switchHeaderClickContent('compliance-rule-link')">合规规则</a></li>
+				<li class="setting-link"><a href="#">设置<span class="sr-only">(current)</span></a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Others <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他 <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Action</a></li>
 						<li><a href="#">Another action</a></li>
@@ -33,12 +35,12 @@
 			</ul>
 			<form class="navbar-form navbar-left">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search">
+					<input type="text" class="form-control" placeholder="输入内容">
 				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default">搜索</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Sign Out</a></li>
+				<li><a href="#">退出</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">YwY <span class="caret"></span></a>
 					<ul class="dropdown-menu">

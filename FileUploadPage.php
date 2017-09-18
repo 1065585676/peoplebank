@@ -15,11 +15,11 @@
 		<strong>Warning!</strong> <span id="alertMsg">Better check yourself, you're not looking too good.</span>
 	</div>
 
-	<h3>Select Files</h3>
+	<h3>选择文件</h3>
 	<div>
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#localFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab">Local Load</a></li>
-			<li role="presentation"><a href="#ftpFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab">FTP Upload</a></li>
+			<li role="presentation" class="active"><a href="#localFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab">本地上传</a></li>
+			<li role="presentation"><a href="#ftpFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab"> FTP 上传</a></li>
 		</ul>
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="localFiles">
@@ -28,13 +28,37 @@
 					<input id="localUpload" type="file" class="file-loading" name="localFilesUpload[]"  multiple />
 					<span class="input-group-btn"></span>
 					<span class="input-group-btn" style="vertical-align: bottom;">
-						<button class="btn btn-default btn-switch-preview" type="button">Enable Preview</button>
+						<button class="btn btn-primary btn-switch-preview" type="button">关闭预览</button>
 					</span>
 				</div>
+				<br>
+				<div class="radio-group" id="uploadFileType">
+					<label class="btn btn-primary">
+						<input type="radio" name="types" value="T1" checked="checked"> 门禁
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="types" value="T2"> 操作
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="types" value="T3"> 系统
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="types" value="T4"> 其他
+					</label>
+				</div><!-- /input-group -->
 			</div>
 			<div role="tabpanel" class="tab-pane fade" id="ftpFiles">
 				<br>
-				...
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="FTP 文件地址">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-circle-arrow-up"></i> 上传 </button>
+							</span>
+						</div><!-- /input-group -->
+					</div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
 			</div>
 		</div>
 	</div>
@@ -46,18 +70,24 @@
 $(document).ready(function() {
 	$('#localUpload').fileinput({
 		uploadUrl: "server/localFilesUploadHandler.php",
-		showPreview: false,
+		showPreview: true,
+		language: "zh",
 		//maxFileCount: 3,
 		//msgFilesTooMany: "选择的文件个数太多 ({n})，最多选择 {m} 个!",
+		//uploadExtraData: { filetype: $('#uploadFileType input:radio:checked').val() }
+		uploadExtraData: function() {
+			//return { filetype: Math.random()*10+1 }
+			return { filetype: $('#uploadFileType input:radio:checked').val() }
+		}
 	});
 
 	$('.btn-switch-preview').on('click', function(){
     	if($('#localUpload').data('fileinput')['showPreview']) {
     		$('#localUpload').fileinput('refresh', { showPreview: false });
-    		$('.btn-switch-preview').html('Enable Preview').removeClass('btn-primary').addClass('btn-default');
+    		$('.btn-switch-preview').html('开启预览');
     	} else {
     		$('#localUpload').fileinput('refresh', { showPreview: true });
-    		$('.btn-switch-preview').html('Disable Preview').removeClass('btn-default').addClass('btn-primary');
+    		$('.btn-switch-preview').html('关闭预览');
     	}
     });
 });
