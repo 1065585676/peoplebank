@@ -4,22 +4,24 @@
 <script type="text/javascript">
 	$('.file-select-link').addClass('active');
 
+	$('.analyse-rule-link').removeClass('active');
 	$('.conduct-rule-link').removeClass('active');
 	$('.compliance-rule-link').removeClass('active');
 	$('.setting-link').removeClass('active');
 </script>
 
 <div style="width: 80%; margin: 0 auto">
-	<div id="myAlert" class="alert alert-warning alert-dismissible" role="alert">
+	<div id="myAlert" class="alert alert-warning alert-dismissible hidden" role="alert">
 		<button type="button" class="close" onclick="$('#myAlert').addClass('hidden');" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<strong>Warning!</strong> <span id="alertMsg">Better check yourself, you're not looking too good.</span>
 	</div>
 
-	<h3>选择文件</h3>
+	<h3>文件上传</h3>
 	<div>
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#localFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab">本地上传</a></li>
 			<li role="presentation"><a href="#ftpFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab"> FTP 上传</a></li>
+			<li role="presentation"><a href="#ftpFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab"> Web Service</a></li>
 		</ul>
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="localFiles">

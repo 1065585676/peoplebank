@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<strong>
-				<a class="navbar-brand" href="http://www.pbc.gov.cn/" target="_blank"> 中 国 人 民 银 行 </a>
+				<a class="navbar-brand" href="http://www.pbc.gov.cn/" target="_blank"> 违规行为检查管理平台 </a>
 			</strong>
 		</div>
 
@@ -17,9 +17,9 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="file-select-link"><a href="FileUploadPage.php">文件上传</a></li>
-				<li class="conduct-rule-link"><a href="ConductRulePage.php" onclick="switchHeaderClickContent('conduct-rule-link')">行为规则</a></li>
-				<li class="compliance-rule-link"><a href="ComplianceRulePage.php" onclick="switchHeaderClickContent('compliance-rule-link')">合规规则</a></li>
-				<li class="setting-link"><a href="#">设置<span class="sr-only">(current)</span></a></li>
+				<li class="compliance-rule-link"><a href="ComplianceRulePage.php" onclick="switchHeaderClickContent('compliance-rule-link')">合规规则配置</a></li>
+				<li class="conduct-rule-link"><a href="ConductRulePage.php" onclick="switchHeaderClickContent('conduct-rule-link')">行为规则挖掘</a></li>
+				<li class="analyse-rule-link"><a href="AnalyseRulePage.php" onclick="switchHeaderClickContent('analyse-rule-link')">违规检测</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他 <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -42,12 +42,12 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">退出</a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">YwY <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Your Profile</a></li>
+						<li><a href="#">用户组：管理员</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Help</a></li>
-						<li><a href="#">Account Assistant</a></li>
+						<li><a href="#">帮助</a></li>
+						<li><a href="#">账户协助</a></li>
 					</ul>
 				</li>
 			</ul>
