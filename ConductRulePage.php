@@ -19,10 +19,11 @@
 
 	<h3> 行为规则挖掘 </h3>
 	<div class="progress myMiniProgress hidden">
-		<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 90%; min-width: 2em;">
-			<span>规则挖掘：90%</span>
+		<div class="progress-bar progress-bar-success progress-bar-striped active myMiniProgressValue" style="width: 0%; min-width: 10em;">
+			<span>规则挖掘：<label id="conductMiniProgressLabelValue">0</label>%</span>
 		</div>
 	</div>
+
 	<div id="myBootstrapTableToolbar">
 		<button type="button" class="btn btn-success btn-toolbar-enable-rule">
 			<i class="glyphicon glyphicon-ok"></i> 启用
@@ -334,6 +335,29 @@ $(document).ready(function() {
 		$("#myAlertBottom").removeClass('hidden');
 
 		$('.myMiniProgress').removeClass('hidden');
+
+		var num = 0;
+		var num_max_count = parseInt(Math.random() * 5 + 5);
+		var i = setInterval(function() {
+            num++;
+            var progressInt = parseInt(num / num_max_count * 100);
+            if (progressInt > 100)
+            	progressInt = 100;
+            $('#conductMiniProgressLabelValue').html(progressInt) ;
+            $('.myMiniProgressValue').css("width", progressInt.toString() + "%");
+            if (num > num_max_count) {
+            	clearInterval(i);
+            	$('#conductMiniProgressLabelValue').html(100);
+            	$('.myMiniProgressValue').css("width", "100%");
+            	$('.myMiniProgress').addClass('hidden');
+            	// change data
+            	$('#myBootstrapTable').bootstrapTable('refresh', {
+            		url: 'server/getConductRuleTableDataHandler.php?after=true'
+            	});
+            }
+
+        }, 1000);
+
 	});
 	$('.btn-cancel-mini-conduct-rule').on('click', function(){
 		//$("#myAlertBottomMsg").html("You Click Mini Button!");

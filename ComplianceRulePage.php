@@ -63,6 +63,10 @@
 				<div class="modal-body">
 					<form>
 						<div class="form-group">
+							<label for="add-rule-id" class="form-control-label">ID:</label>
+							<input type="text" class="form-control" id="add-rule-id">
+						</div>
+						<div class="form-group">
 							<label for="add-rule-name" class="form-control-label">名称:</label>
 							<input type="text" class="form-control" id="add-rule-name">
 						</div>
@@ -86,10 +90,10 @@
 									<button type="button" class="btn btn-secondary premise-op-fenhao" disabled onclick="$('#select-premise-content').val($('#select-premise-content').val() + ' ; ');$('.select-premise').selectpicker('val', '');"> ; </button>
 								</div>
 							</div>
-							<textarea class="form-control" id="select-premise-content"></textarea>
+							<textarea class="form-control add-rule-premise" id="select-premise-content"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="add-rule-content" class="form-control-label">结论:</label>
+							<label for="add-rule-conclusion" class="form-control-label">结论:</label>
 							<div class="btn-toolbar mb-4">
 								<div class="btn-group mb-2">
 									<select class="selectpicker show-tick select-conclusion" data-live-search="true" title="基本事件">
@@ -108,10 +112,10 @@
 									<button type="button" class="btn btn-secondary" onclick="$('#select-conclusion-content').val($('#select-conclusion-content').val() + ' ;');$('.select-conclusion').selectpicker('val', '');"> ; </button>
 								</div>
 							</div>
-							<textarea class="form-control" id="select-conclusion-content"></textarea>
+							<textarea class="form-control add-rule-conclusion" id="select-conclusion-content"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="add-rule-content" class="form-control-label">约束:</label>
+							<label for="add-rule-constraint-premise" class="form-control-label">约束:</label>
 							<div class="btn-toolbar">
 								<div class="btn-group">
 									<select class="selectpicker show-tick select-constraint-premise" data-live-search="true" title="基本事件">
@@ -146,7 +150,7 @@
 									<button type="button" class="btn btn-secondary" onclick="$('#select-constraint-content').val($('#select-constraint-content').val() + ' / ');$('.select-constraint-premise').selectpicker('val', '');$('.select-constraint-property').selectpicker('val', '');"> / </button>
 								</div>
 							</div>
-							<textarea class="form-control" id="select-constraint-content"></textarea>
+							<textarea class="form-control add-rule-constraint" id="select-constraint-content"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="add-rule-describe" class="form-control-label">描述:</label>
@@ -373,9 +377,11 @@ $(document).ready(function() {
 	$('.btn-confirm-add-rule').on('click', function(){
 		var row = [];
 		row.push({
-			id: parseInt($('#add-rule-id').val()),
+			id: $('#add-rule-id').val(),
 			name: $('#add-rule-name').val(),
-			content: $('#add-rule-content').val(),
+			premise: $('.add-rule-premise').val(),
+			conclusion: $('.add-rule-conclusion').val(),
+			constraint: $('.add-rule-constraint').val(),
 			describe: $('#add-rule-describe').val(),
 			remark: $('#add-rule-remark').val()
 		});

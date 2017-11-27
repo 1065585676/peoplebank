@@ -95,8 +95,8 @@
 		<button class="btn btn-danger btn-ok btn-confirm-analysis-compliance-rule" data-dismiss="modal">违规检测</button>
 	</div>
 	<div class="progress myAnalysProgress hidden">
-		<div class="progress-bar progress-bar-primary progress-bar-striped active" style="width: 60%; min-width: 2em;">
-			<span>违规检测：60%</span>
+		<div class="progress-bar progress-bar-primary progress-bar-striped active myAnalysProgressValue" style="width: 0%; min-width: 10em;">
+			<span>违规检测：<label id="analysProgressLabelValue">0</label>%</span>
 		</div>
 	</div>
 	<table id="myBootstrapTable"></table>
@@ -284,6 +284,7 @@ $(document).ready(function() {
 
 	});
 
+	var i;
 	$('.btn-confirm-analysis-compliance-rule').on('click', function(){
 		var analysisInfo = '<br>文件类型：' + $('#analysis-compliance-rule-filetype').val();
 		analysisInfo += '<br>规则类型：' + $('#analysis-compliance-rule-ruletype').val();
@@ -294,12 +295,36 @@ $(document).ready(function() {
 		$("#myAlertBottom").removeClass('hidden');
 
 		$('.myAnalysProgress').removeClass('hidden');
+
+		var num = 0;
+		var num_max_count = parseInt(Math.random() * 5 + 5);
+		i = setInterval(function() {
+            num++;
+            var progressInt = parseInt(num / num_max_count * 100);
+            if (progressInt > 100)
+            	progressInt = 100;
+            $('#analysProgressLabelValue').html(progressInt) ;
+            $('.myAnalysProgressValue').css("width", progressInt.toString() + "%");
+            if (num > num_max_count) {
+            	clearInterval(i);
+            	$('#analysProgressLabelValue').html(100);
+            	$('.myAnalysProgressValue').css("width", "100%");
+            	$('.myAnalysProgress').addClass('hidden');
+            	// change data
+            	$('#myBootstrapTable').bootstrapTable('refresh', {
+            		url: 'server/getAnalyseRuleTableDataHandler.php?after=true'
+            	});
+            }
+
+        }, 1000);
+
 	});
 	$('.btn-cancel-analysis-compliance-rule').on('click', function(){
 		//$("#myAlertBottomMsg").html("You Click Analyse Button!");
 		//$("#myAlertBottom").removeClass('hidden');
 
 		$('.myAnalysProgress').addClass('hidden');
+		clearInterval(i);
 	});
 
 	$('.btn-confirm-mini-compliance-rule').on('click', function(){

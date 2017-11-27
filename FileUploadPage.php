@@ -19,9 +19,9 @@
 	<h3>文件上传</h3>
 	<div>
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#localFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab">本地上传</a></li>
+			<li role="presentation" class="active"><a href="#localFiles" aria-controls="localFiles" role="tab" data-toggle="tab">本地上传</a></li>
 			<li role="presentation"><a href="#ftpFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab"> FTP 上传</a></li>
-			<li role="presentation"><a href="#ftpFiles" aria-controls="ftpFiles" role="tab" data-toggle="tab"> Web Service</a></li>
+			<li role="presentation"><a href="#webServerFiles" aria-controls="webServerFiles" role="tab" data-toggle="tab"> Web Service</a></li>
 		</ul>
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="localFiles">
@@ -55,6 +55,19 @@
 					<div class="col-lg-6">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="FTP 文件地址">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-circle-arrow-up"></i> 上传 </button>
+							</span>
+						</div><!-- /input-group -->
+					</div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
+			</div>
+			<div role="tabpanel" class="tab-pane fade" id="webServerFiles">
+				<br>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Web Server 文件地址">
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-circle-arrow-up"></i> 上传 </button>
 							</span>
